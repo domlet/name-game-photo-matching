@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn Student Names (Game)</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+
+<body>
+  <div>
+    <!-- Group selection drop-down menu -->
+    <div id="dropdown">
+      <label for="students">Choose a group:</label>
+      <select id="group-select" name="group-select" onchange="selectGroup(this);">
+        <option value="sy2324_lastname_p0">sy2324_lastname_p0</option>
+        <option value="sy2324_lastname_p1">sy2324_lastname_p1</option>
+      </select>
+    </div>
+    <div>
+      <!-- Empty containers where the game elements will appear -->
+      <div id="photo"></div>
+      <div id="clickable-name0" class="nameOption" onclick="playerProgress(this.id)" style="clear: right;"></div>
+      <div id="clickable-name1" class="nameOption" onclick="playerProgress(this.id)"></div>
+      <br style="clear: both;" />
+      <div id="correct"></div>
+      <div id="incorrect"></div>
+      <div id="possible"></div>
+      <div id="score"></div>
+      <div id="grade"></div>
+    </div>
+    <script>
+      // Load group rosters:
+      window.sy2324_lastname_p0 = {
+        "0": "Ego (Kurt Russell)",
+        "1": "Baby Groot (Vin Diesel)",
+        "2": "Ayesha (Elizabeth Debicki)",
+        "3": "Star-Lord (Chris Pratt)",
+        "4": "Mantis (Pom Klementieff)",
+        "5": "Rocket (Bradley Cooper)",
+        "6": "Drax the Destroyer (Dave Bautista)",
+        "7": "Yondu (Michael Rooker)",
+        "8": "Gamora (Zoe Saldana)",
+        "9": "Nebula (Karen Gillan)"
+      }
+      window.sy2324_lastname_p1 = {
+        "0": "Gladys R. Wilkerson",
+        "1": "Joseph C. Herd",
+        "2": "Deborah A. Knight",
+        "3": "Mildreda Zambrano Ceballos",
+        "4": "Macaire Mendoza Mota",
+        "5": "Baal Escobar Yáñez",
+        "6": "Cleofas Palomo Pichardo",
+        "7": "Heraclea Portillo Peres",
+        "8": "Florentina Heredia Chávez",
+        "9": "Desiderio Cortez Ortega",
+        "10": "Ariane Guerra Fajardo",
+        "11": "Olina Gamboa Saenz",
+        "12": "Mee Cheng",
+        "13": "Xiu Yüan",
+        "14": "Brutus Labingi"
+      }
+
+      // Create a function to deliver a selected 
+      // drop-down option string as a JSON object:
+      function accessVariableByName(variableName) {
+        if (window.hasOwnProperty(variableName)) {
+          groupSelected = window[variableName]
+          return window[variableName];
+        } else {
+          console.log("I cannot find a variable with that name")
+          return undefined;
+        }
+      }
+
+      // Use the first listed option by default:
+      let groupCount = 0
+      let groupSelectedString = $("option:first")[0].value // returns a string
+      let groupSelected = {} // empty object
+      groupSelected = accessVariableByName(groupSelectedString) // assign a JSON as new value
+      // Count the group size:
+      function groupCounter(object) {
+        groupCount = Object.keys(object).length
+        return groupCount
+      }
+      console.log(groupCount)
+      let guessesTotal = 0
+      let guessesCorrect = 0;
+      let guessesIncorrect = 0;
+      let playerScore = 0
+      let playerGrade = ""
+
+      function playerProgress(nameOption) {
+        // Evaluate correct or incorrect:
+        if (nameOption == 'clickable-name0' && randNum3 == 0) {
+          guessesCorrect += 1
+        } else if (nameOption == 'clickable-name1' && randNum3 == 1) {
+          guessesCorrect += 1
+        } else {
+          guessesIncorrect += 1
+        }
+        guessesTotal += 1
+        // Calculate player score:
+        playerScore = ((guessesCorrect / guessesTotal) * 100).toFixed(0);
+        // Assign player grade:
+        if (playerScore == 0) {
+          playerGrade = ""
+        } else if (playerScore > 89) {
+          playerGrade = "A"
+        } else if (playerScore > 79) {
+          playerGrade = "B"
+        } else if (playerScore >= 69) {
+          playerGrade = "C"
+        } else if (playerScore < 69) {
+          playerGrade = "F"
+        }
+        showStuff(groupSelected)
+      }
+      function playerProgressReset() {
+        guessesTotal = 0
+        guessesCorrect = 0
+        guessesIncorrect = 0
+        playerScore = 0
+        playerGrade = ""
+      }
+
+      function selectGroup(groupSelected) {
+        groupSelectedString = groupSelected.value;
+        groupSelected = accessVariableByName(groupSelectedString) // assign a new value
+        // accessVariableByName(groupSelectedString)
+        playerProgressReset()
+        showStuff(groupSelected)
+        console.log("i reset it!")
+      }
+
+      function chooseTwo(group) {
+        // Randomly choose 2 numbers in the range of groupSize:
+        randNum1 = Math.floor(Math.random() * groupCount);
+        randNum2 = Math.floor(Math.random() * groupCount);
+        // Ensure they are two DIFFERENT numbers:
+        while (randNum1 == randNum2) {
+          randNum2 = Math.floor(Math.random() * groupCount);
+        }
+        // Get the two selected students' names:
+        nameCorrect = group[randNum1]
+        nameIncorrect = group[randNum2]
+      }
+
+      function showStuff(object) {
+        // Build the game (and reset the score):
+        groupCounter(object)
+        chooseTwo(object);
+        console.log("the group is " + groupSelectedString + " with count " + groupCount)
+        // Display one student photo:
+        var el = document.getElementById("photo");
+        el.innerHTML = `<img src=\"${groupSelectedString}/${randNum1}.jpg\">`;
+        // Randomize the positions and show the two names:
+        randNum3 = Math.floor(Math.random() * 2);
+        if (randNum3 == 0) {
+          var el = document.getElementById("clickable-name0");
+          el.innerHTML = `${nameCorrect}`;
+          var el = document.getElementById("clickable-name1");
+          el.innerHTML = `${nameIncorrect}`;
+        } else {
+          var el = document.getElementById("clickable-name1");
+          el.innerHTML = `${nameCorrect}`;
+          var el = document.getElementById("clickable-name0");
+          el.innerHTML = `${nameIncorrect}`;
+        }
+        // Show statistics:
+        let el1 = document.getElementById("correct");
+        let el2 = document.getElementById("incorrect");
+        let el3 = document.getElementById("possible");
+        let el4 = document.getElementById("score");
+        let el5 = document.getElementById("grade");
+        el1.innerHTML = `Correct: <strong> ${guessesCorrect}</strong>`;
+        el2.innerHTML = `Incorrect: <strong> ${guessesIncorrect}</strong>`;
+        el3.innerHTML = `Possible: <strong> ${groupCount}</strong>`;
+        el4.innerHTML = `Score: <strong> ${playerScore}%</strong>`;
+        el5.innerHTML = `Grade: <strong> ${playerGrade}</strong>`;
+      }
+      // Call the function when the page loads:
+      showStuff(groupSelected); // default value
+    </script>
+
+</body>
+
+</html>
