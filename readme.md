@@ -82,8 +82,14 @@ When you have those ready, follow these steps:
 * Never publish internal student data (like photos or names) to the Internet. This data should be protected and kept private. Do not upload your app to GitHub with student data included. If you are using GitHub to back up your files, use a .gitignore file to exclude local files from your remote repository.
 * Ask students for their preferred names (and pronouns) before using name data from your school. Learning and using your students' preferred names is a practice of identity affirmation.
 
-## Technology stack
+## Tech stack
 This is a single-page app (a browser-based interactive game) written in JavaScript, HTML, and CSS.
 
-## About the creator
-Dom Brassey (she/they) ("Mx. Brassey") teaches computer science at [Coliseum College Prep Academy](https://www.ousd.org/ccpa). CCPA is a public school serving students (grades 6-12) in the eastern region of the Oakland Unified School District in Oakland, California, USA.
+## Issues and pull requests
+* PRs are welcome – but please keep the architecture simple. The target audience for this tool is school teachers (who are not programming experts).
+* If you have questions, [create a new issue](https://github.com/domlet/name-game-photo-matching/issues).
+
+## Creator
+Dom Brassey (she/they) ("Mx. Brassey") teaches computer science at [Coliseum College Prep Academy](https://www.ousd.org/ccpa). CCPA is a public school serving students (grades 6-12) in the eastern region of the Oakland Unified School District in Oakland, California, USA. 
+
+* You can send a tip with [Venmo](https://venmo.com/u/Dom-Brassey) :)
