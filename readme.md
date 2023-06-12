@@ -92,4 +92,5 @@ This is a single-page app (a browser-based interactive game) written in JavaScri
 ## Creator
 Dom Brassey (she/they) ("Mx. Brassey") teaches computer science at [Coliseum College Prep Academy](https://www.ousd.org/ccpa). CCPA is a public school serving students (grades 6-12) in the eastern region of the Oakland Unified School District in Oakland, California, USA. 
 
-* You can send a tip with [Venmo](https://venmo.com/u/Dom-Brassey) :)
+* You can send a tip with [Venmo](https://venmo.com/u/Dom-Brassey)
+* You can send a tip with [Cash App](https://cash.app/$domlet)
