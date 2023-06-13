@@ -51,7 +51,7 @@ When you have those ready, follow these steps:
 
 5. Then, in the `index.html` file, find the JSON object named `sy2324_lastname_p0` (the sample data). On a new line, create a new JSON object following the same nomenclature and format, but using your own student names. Here is an example of a JSON object for a group with four students:
 
-	```json
+	```javascript
 	window.sy2324_lastname_p0 = {
 		"0": "Gladys R. Wilkerson",
 		"1": "Joseph C. Herd",
