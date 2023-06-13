@@ -51,7 +51,7 @@ When you have those ready, follow these steps:
 
 5. Then, in the `index.html` file, find the JSON object named `sy2324_lastname_p0` (the sample data). On a new line, create a new JSON object following the same nomenclature and format, but using your own student names. Here is an example of a JSON object for a group with four students:
 
-	```
+	```json
 	window.sy2324_lastname_p0 = {
 		"0": "Gladys R. Wilkerson",
 		"1": "Joseph C. Herd",
@@ -65,14 +65,14 @@ When you have those ready, follow these steps:
 
 1. Open the `index.html` file in your text editor and find the `        <option>` element that references the sample data:
 
-	```
+	```html
 	<option value="sy2324_lastname_p0">sy2324_lastname_p0</option>
 	```
 
 2. Change instances of the string `sy2324_lastname_p0` to the name of the folder you created to contain your student photos.
 3. If you are adding multiple groups of students, add an additional line for each group. (This enables the drop-down menu.) Here's example code for a game with three different groups:
 
-	```
+	```html
 	<option value="sy2324_lastname_p0">sy2324_lastname_p0</option>
 	<option value="sy2324_lastname_p4">sy2324_lastname_p4</option>
 	<option value="sy2324_lastname_p5">sy2324_lastname_p5</option>
@@ -92,5 +92,5 @@ This is a single-page app (a browser-based interactive game) written in JavaScri
 ## Creator
 Dom Brassey (she/they) ("Mx. Brassey") teaches computer science at [Coliseum College Prep Academy](https://www.ousd.org/ccpa). CCPA is a public school serving students (grades 6-12) in the eastern region of the Oakland Unified School District in Oakland, California, USA. 
 
-* You can send a tip with [Venmo](https://venmo.com/u/Dom-Brassey)
-* You can send a tip with [Cash App](https://cash.app/$domlet)
+* Send a tip with [Venmo](https://venmo.com/u/Dom-Brassey)
+* Send a tip with [Cash App](https://cash.app/$domlet)
