@@ -6,9 +6,7 @@ You can download this game and add your own data (photos and names) to use it as
 
 ## Download (and run) the app
 
-Before you begin customizing this game with your own data, download and play the game (using the sample data) to see how it works.
-
-The sample data includes AI-generated photo-realistic human faces from [This Person Does Not Exist - Random Face Generator](https://this-person-does-not-exist.com/en) and fake names from [Fake Name Generator](https://www.fakenamegenerator.com/).
+Before you begin customizing this game with your own data, download and play the game (using the sample data) to see how it works. (The sample data includes [AI-generated faces](https://this-person-does-not-exist.com/en) and [fake names](https://www.fakenamegenerator.com/).)
 
 This is what the game looks like:
 
